@@ -1,0 +1,163 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+
+    <script>
+
+        //==============exmple 1
+    // var rect = {};
+
+    //  rect.height= 23;
+    //  rect.weidth=45;
+
+    //  console.log(rect);
+
+     ///================= exmplw 2
+
+    //  var rect = { 
+         
+    //      height : 23,
+    //      weidth :45
+     
+    //  };
+
+    //  console.log(rect);
+    //  console.log(rect.height);
+
+// ===================exmple 3
+
+
+
+    var rect = {
+         width: 20,
+          height: 10 
+
+         };
+// add new object
+
+rect.color = {
+     red: 0,
+      green: 255,
+       blue: 128
+      }; 
+// add new method
+
+rect.getArea = function() {                    
+    return this.width * this.height;
+};
+
+console.log(rect.color.red);             // => 0
+console.log(rect.color.green);           // => 255
+console.log(rect.color.blue);            // => 128
+console.log(rect.getArea()); 
+
+     
+     //=================4) exmple 
+
+     var rect = {
+
+width: 20, 
+height: 10,
+
+color: { red: 0, green: 255, blue: 128 }, // object property
+
+getArea: function() {                     // method property 
+   return this.width * this.height;
+}
+};
+console.log(rect.width);                 // => 20
+console.log(rect.height);                // => 10
+console.log(rect.color.red);             // => 0
+console.log(rect.color.green);           // => 255
+console.log(rect.color.blue);            // => 128
+console.log(rect.getArea()); 
+
+
+
+//=====================Getting property names with for-in=========
+
+var car = {
+     make: "Toyota",
+      model: "Camry"
+       };
+
+for (var prop in car) {
+   // => make: Toyota, and model: Camry
+   console.log(prop);
+  // alert(prop + ": " + car[prop]);  
+}
+
+///================  
+
+// var car = {
+
+//     make: "Toyota", 
+//     model: "Camry", 
+
+//     print : function() {
+//         alert(this.make + " " + this.model);
+//     }
+// };
+
+// for (var prop in car) {
+
+//    if (typeof car[prop] !== "function") {
+//       alert(prop);         // => make, and model
+//    }
+// }
+    
+//============================Creating objects with constructor functions=======
+
+//     function Book(isbn) {
+
+// this.isbn = isbn;
+
+// this.getIsbn = function () {
+//     return "Isbn is " + this.isbn;
+// };
+// }
+
+
+
+// var book = new Book("901-3865");
+
+// console.log(book.getIsbn()); 
+
+//====================
+
+function Task(){
+    this.message = "Learning JS";
+}
+
+var t = new Task();                  // includes new   
+console.log(t.message);                    // => Learning JS
+console.log(window.message === undefined); // => true
+var u = Task();                      // new is omitted!
+console.log(window.message === undefined); // => false
+console.log(window.message);
+
+function Task(){
+    if (!(this instanceof Task)){
+        return new Task();
+    }
+    this.message = "Learning JS";
+}
+var t = Task();    // new is omitted
+alert(t.message);  // => Learning JS
+
+
+    </script>
+    
+</body>
+</html>
